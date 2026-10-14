@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CraveCraft — Smart Food Ordering & AI Dining</title>
+  <meta name="description" content="Experience gourmet North Indian dining with CraveCraft. Explore our artisanal menu in INR, enjoy fast delivery, and get instant dish recommendations with our AI assistant CraveBot.">
+  <meta name="theme-color" content="#ff6b35">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/static/images/cravecraft-logo.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Special announcements">
+    <div class="top-bar-content">
+      <span class="pill">Special Offer</span>
+      <span>🔥 Free express delivery on orders over ₹499! Use coupon <strong style="color: #fff; text-decoration: underline;">CRAVE50</strong> for ₹50 off.</span>
+      <span style="opacity: 0.6;">|</span>
+      <span>🤖 <strong>CraveBot AI Assistant</strong> is live to help pick your meal!</span>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="header" id="siteHeader">
+    <div class="container header-nav">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand" aria-label="CraveCraft Home">
+        <img src="/static/images/cravecraft-logo.jpg" alt="CraveCraft Emblem" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-name">CraveCraft</span>
+          <span class="brand-tagline">Smart Food Ordering</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#menuSection" class="nav-link active">Menu</a></li>
+          <li><a href="#aiShowcase" class="nav-link">AI CraveBot</a></li>
+          <li><a href="#evaluatorSection" class="nav-link">AI Evaluator</a></li>
+          <li><a href="#aboutSection" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <div class="live-pill" title="Kitchen is actively accepting orders">
+          <span class="live-dot"></span>
+          <span>Open Now • 25m</span>
+        </div>
+
+        <!-- Open Evaluator Benchmark -->
+        <button type="button" class="btn-secondary btn-sm" id="btnOpenBenchmarkNav" title="View AI Response Evaluation Report">
+          📊 Benchmark
+        </button>
+
+        <!-- Cart Nav Toggle -->
+        <button type="button" class="btn-cart-nav" id="btnOpenCart" aria-label="Open Shopping Cart">
+          <div class="cart-icon-wrapper">
+            <span style="font-size: 1.15rem;">🛒</span>
+          </div>
+          <span class="cart-badge" id="cartNavCount">0</span>
+          <span id="cartNavTotal" style="color: var(--accent-secondary); font-weight: 700;">₹0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-pill">
+            <span>✨</span>
+            <span>Next-Gen Gourmet Dining & AI Recommender</span>
+          </div>
+
+          <h1 class="hero-title">
+            Culinary Craftsmanship Meets <span class="gradient-text">Smart AI Ordering</span>
+          </h1>
+
+          <p class="hero-desc">
+            Savor authentic charcoal-smoked kebabs, 24-hour slow-cooked Dal Makhani, and fragrant royal dum biryanis. Not sure what to pick? Ask our intelligent <strong>CraveBot</strong> to tailor dishes to your exact budget, dietary preferences, and taste.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#menuSection" class="btn-primary" id="heroBtnExplore">
+              <span>Explore Menu 🍽️</span>
+            </a>
+            <button type="button" class="btn-secondary" id="heroBtnAskBot">
+              <span>Ask CraveBot 🤖</span>
+            </button>
+            <a href="#evaluatorSection" class="btn-secondary" id="heroBtnEval">
+              <span>AI Evaluation Report 📊</span>
+            </a>
+          </div>
+
+          <!-- Trust Bar -->
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <span class="trust-title">⚡ 25-35 Mins</span>
+              <span class="trust-sub">Express Hot Delivery</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-title">🟢 100% Verified</span>
+              <span class="trust-sub">Pure Veg & Halal Options</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-title">⭐ 4.9 / 5.0</span>
+              <span class="trust-sub">2,800+ Foodie Reviews</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-title">🛡️ Zero Hallucination</span>
+              <span class="trust-sub">Ground-Truth AI Catalog</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Media Display -->
+        <div class="hero-media-wrapper">
+          <div class="hero-image-card">
+            <img src="/static/images/hero-banner.jpg" alt="Artisanal Indian feast on dark table" class="hero-banner-img">
+
+            <!-- Floating Badges -->
+            <div class="hero-floating-badge badge-top">
+              <div class="floating-badge-title">Customer Favorite</div>
+              <div class="floating-badge-val">⭐ 4.9 Rating • 1.2k Orders</div>
+            </div>
+
+            <div class="hero-floating-badge badge-bottom">
+              <div class="floating-badge-title">Chef's Signature Today</div>
+              <div class="floating-badge-val">🔥 Smoked Butter Chicken • ₹489</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES ROW -->
+    <section class="features-section" aria-label="Restaurant features">
+      <div class="container features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">🥘</div>
+          <h3>Artisanal Kitchen</h3>
+          <p>Hand-pounded Indian whole spices, 24-hour slow braising, and authentic coal tandoor techniques for uncompromising taste.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🤖</div>
+          <h3>CraveBot Assistant</h3>
+          <p>Tell CraveBot your budget, spice tolerance, or dietary preference, and receive instant meal combinations with one-click cart ordering.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">⚡</div>
+          <h3>Seamless Ordering</h3>
+          <p>Real-time cart calculation, transparent taxes, coupon discounts, and instant order confirmation tracking with estimated delivery.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🎯</div>
+          <h3>AI Quality Audited</h3>
+          <p>Every CraveBot response is evaluated for relevance, factual consistency with our menu, and clarity with our built-in benchmark system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section" id="menuSection">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-subtitle">Freshly Prepared With Love</span>
+          <h2 class="section-title">Explore Our Handcrafted Menu</h2>
+          <p class="section-desc">
+            All prices in Indian Rupees (INR ₹) inclusive of food preparation. Every dish is crafted to order with premium farm-fresh ingredients.
+          </p>
+        </div>
+
+        <!-- Menu Controls -->
+        <div class="menu-controls">
+          <!-- Search & Sort Row -->
+          <div class="search-sort-row">
+            <div class="search-input-wrapper">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="menuSearchInput" class="search-input" placeholder="Search dishes, ingredients, or flavors (e.g. Biryani, Truffle, Dal Makhani)..." autocomplete="off">
+              <button type="button" id="menuSearchClear" class="search-clear-btn" title="Clear search">✕</button>
+            </div>
+
+            <select id="menuSortSelect" class="sort-select" aria-label="Sort Menu Items">
+              <option value="recommended">⭐ Recommended & Bestsellers</option>
+              <option value="price-asc">💰 Price: Low to High</option>
+              <option value="price-desc">💎 Price: High to Low</option>
+              <option value="rating-desc">🏆 Highest Rated (4.8+)</option>
+            </select>
+          </div>
+
+          <!-- Dietary & Quick Filter Pills -->
+          <div class="dietary-pills-row" id="dietaryPillsContainer">
+            <button type="button" class="dietary-pill active" data-filter="all">All Items</button>
+            <button type="button" class="dietary-pill veg" data-filter="veg">🟢 Veg Only</button>
+            <button type="button" class="dietary-pill nonveg" data-filter="nonveg">🔴 Non-Veg Only</button>
+            <button type="button" class="dietary-pill" data-filter="spicy">🌶️ Spicy Picks</button>
+            <button type="button" class="dietary-pill" data-filter="special">⭐ Chef's Specials</button>
+            <button type="button" class="dietary-pill" data-filter="budget">💵 Under ₹300</button>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="category-tabs" id="categoryTabsContainer">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div class="menu-grid" id="menuGrid" aria-live="polite">
+          <!-- Dish cards inserted dynamically by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- AI CRAVEBOT SHOWCASE & PROMPTS BANNER -->
+    <section class="ai-banner-section" id="aiShowcase">
+      <div class="container">
+        <div class="ai-banner-card">
+          <img src="/static/images/cravebot-avatar.jpg" alt="CraveBot AI Avatar" class="ai-avatar-badge">
+
+          <div class="ai-banner-content">
+            <span class="pill" style="margin-bottom: 8px; display: inline-block;">Interactive AI Dining</span>
+            <h2>Can't Decide? Ask CraveBot for Recommendations</h2>
+            <p>
+              CraveBot is our smart in-house food sommelier. It understands natural food cravings, builds multi-course combos within any budget, checks allergens, and never hallucinates fake prices.
+            </p>
+
+            <div class="prompt-chips-wrapper" id="samplePromptChips">
+              <!-- Preset prompt chips -->
+              <button type="button" class="prompt-chip" data-query="Can you recommend a delicious dinner combo for 2 people under ₹800? We prefer non-veg.">
+                <span>🍛 Dinner for 2 under ₹800</span>
+              </button>
+              <button type="button" class="prompt-chip" data-query="What are your best high-protein vegetarian options? I love smoky flavors.">
+                <span>🌿 Best pure veg starters</span>
+              </button>
+              <button type="button" class="prompt-chip" data-query="Tell me about your Dal CraveCraft. What makes it special and what should I pair it with?">
+                <span>🍲 Tell me about Dal CraveCraft</span>
+              </button>
+              <button type="button" class="prompt-chip" data-query="I love fiery hot food! What are the spiciest items on the menu?">
+                <span>🌶️ Spiciest dishes on the menu</span>
+              </button>
+              <button type="button" class="prompt-chip" data-query="What sweet desserts do you have to end the meal?">
+                <span>🍨 Eggless desserts</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI EVALUATION BENCHMARK SECTION (REQUIREMENTS 9 & 10) -->
+    <section class="evaluator-section" id="evaluatorSection">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Rigorous Quality Assurance</span>
+          <h2 class="section-title">AI Response Quality & Evaluation Engine</h2>
+          <p class="section-desc">
+            To guarantee trustworthy ordering, CraveCraft features a built-in evaluation framework that scores responses from 1 to 5 across <strong>Relevance</strong>, <strong>Factual Consistency with Menu</strong>, and <strong>Clarity</strong>.
+          </p>
+        </div>
+
+        <div class="eval-grid">
+          <!-- Left: Sample Evaluation Report (Requirement 10) -->
+          <div class="eval-card featured" id="sampleReportContainer">
+            <div class="eval-header-row">
+              <h3>📋 Sample Benchmark Evaluation Report</h3>
+              <span class="eval-badge" id="reportModeBadge">Verified Gold Standard</span>
+            </div>
+
+            <div class="sample-q-box">
+              <div class="sample-q-label">Test Question / Prompt:</div>
+              <div class="sample-q-text" id="sampleQuestionText">
+                "I have ₹500 and want a rich, creamy vegetarian dinner. What should I order?"
+              </div>
+            </div>
+
+            <div class="sample-a-box">
+              <div class="sample-a-label">Chatbot Response Under Audit:</div>
+              <div class="sample-a-text" id="sampleAnswerText">
+                "For an indulgent and creamy vegetarian dinner within ₹500, I recommend our legendary Dal CraveCraft (24-Hour Makhani) for ₹369! It is slow-simmered overnight on charcoal with churned butter and fresh cream. You can pair it with our Artisanal Garlic & Herb Naan Basket (₹149) or enjoy it solo to stay strictly under budget. Both are 100% Pure Vegetarian (🟢). Would you like me to add Dal CraveCraft to your cart?"
+              </div>
+            </div>
+
+            <!-- Score meters -->
+            <div class="eval-scores-container" id="evalMeters">
+              <!-- Relevance -->
+              <div class="score-row">
+                <div class="score-label-row">
+                  <span>1. Prompt Relevance</span>
+                  <span class="score-val-badge" id="scoreRelevance">5.0 / 5.0</span>
+                </div>
+                <div class="score-progress-track">
+                  <div class="score-progress-bar" id="barRelevance" style="width: 100%;"></div>
+                </div>
+                <div class="score-feedback-text" id="feedbackRelevance">
+                  Directly addresses the vegetarian preference, rich/creamy taste profile, and the ₹500 budget constraint.
+                </div>
+              </div>
+
+              <!-- Factual Consistency -->
+              <div class="score-row">
+                <div class="score-label-row">
+                  <span>2. Factual Consistency with Menu</span>
+                  <span class="score-val-badge" id="scoreConsistency">5.0 / 5.0</span>
+                </div>
+                <div class="score-progress-track">
+                  <div class="score-progress-bar" id="barConsistency" style="width: 100%;"></div>
+                </div>
+                <div class="score-feedback-text" id="feedbackConsistency">
+                  Zero hallucinations. 'Dal CraveCraft' is priced accurately at ₹369, confirmed pure veg, and 'Garlic Naan Basket' is exactly ₹149.
+                </div>
+              </div>
+
+              <!-- Clarity -->
+              <div class="score-row">
+                <div class="score-label-row">
+                  <span>3. Clarity & Tone</span>
+                  <span class="score-val-badge" id="scoreClarity">5.0 / 5.0</span>
+                </div>
+                <div class="score-progress-track">
+                  <div class="score-progress-bar" id="barClarity" style="width: 100%;"></div>
+                </div>
+                <div class="score-feedback-text" id="feedbackClarity">
+                  Appetizing culinary descriptions, clear bolding of prices and dishes, friendly call-to-action, and concise formatting.
+                </div>
+              </div>
+            </div>
+
+            <!-- Overall Verdict -->
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 20px;">
+              <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--veg-color); font-weight: 700;">Overall Audit Score</div>
+              <div style="display: flex; align-items: baseline; gap: 8px;">
+                <span style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-heading); color: var(--veg-color);" id="overallScoreVal">5.0 / 5.0</span>
+                <span style="color: #cbd5e1; font-size: 0.95rem; font-weight: 600;" id="overallVerdictText">• Exceptional (Production Ready)</span>
+              </div>
+            </div>
+
+            <!-- Strengths -->
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 8px;">Strengths Identified:</div>
+            <ul class="eval-bullet-list" id="evalStrengthsList">
+              <li class="eval-bullet-item"><span class="bullet-icon-check">✓</span> Identified Dal CraveCraft as the signature creamy vegetarian specialty</li>
+              <li class="eval-bullet-item"><span class="bullet-icon-check">✓</span> Exact pricing in INR (₹369 + ₹149) with budget transparency</li>
+              <li class="eval-bullet-item"><span class="bullet-icon-check">✓</span> Clear dietary veg icon indicator (🟢)</li>
+              <li class="eval-bullet-item"><span class="bullet-icon-check">✓</span> Friendly conversational tone with proactive cart prompt</li>
+            </ul>
+          </div>
+
+          <!-- Right: Live Evaluation Playground -->
+          <div class="eval-card">
+            <div class="eval-header-row">
+              <h3>🧪 Live Response Evaluator Playground</h3>
+              <span class="pill" id="liveEvalEngineTag">Rule-Based Demo Engine</span>
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">
+              Test our evaluation engine in real-time! Enter any customer query and draft bot response to see how it scores against the official CraveCraft menu database.
+            </p>
+
+            <form class="live-eval-box" id="liveEvalForm">
+              <div class="eval-input-group">
+                <label for="evalPromptInput" class="eval-input-label">Customer Query / Constraint:</label>
+                <textarea id="evalPromptInput" class="eval-textarea" rows="2" placeholder="e.g. Recommend a spicy starter under ₹350 that is pure veg.">Recommend a spicy starter under ₹350 that is pure veg.</textarea>
+              </div>
+
+              <div class="eval-input-group">
+                <label for="evalAnswerInput" class="eval-input-label">Chatbot Response To Audit:</label>
+                <textarea id="evalAnswerInput" class="eval-textarea" rows="4" placeholder="e.g. You will love our Paneer Tikka Angaara for ₹349! Charcoal grilled with Degi mirch...">You will love our Paneer Tikka Angaara for ₹349! Charcoal grilled with Degi mirch and Greek yogurt, it has a medium-spicy punch and is 100% pure veg (🟢).</textarea>
+              </div>
+
+              <button type="submit" class="btn-primary btn-run-eval" id="btnRunAudit">
+                <span>Evaluate Response Now ⚡</span>
+              </button>
+            </form>
+
+            <!-- Dynamic Evaluation Result Box -->
+            <div id="liveAuditResult" style="display: none; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="container" id="aboutSection" style="padding: 40px 24px 80px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        <div>
+          <span class="section-subtitle">Our Heritage & Standards</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Crafted for Pure Indulgence</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 14px; line-height: 1.6;">
+            At CraveCraft, we bridge timeless culinary traditions with modern smart ordering. Our copper pots simmer with authentic gravies, our tandoors fire with natural charcoal, and our AI assistants respect real kitchen facts.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            We operate transparently in Indian Rupees (₹) with strict food safety, separate vegetarian preparation sections, and tamper-proof delivery packaging.
+          </p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div style="background: var(--bg-secondary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary);">100%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Fresh ingredients sourced daily from local farmers</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--veg-color);">24 Hrs</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Slow cooked legendary Dal CraveCraft</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--gold);">4.9 ★</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Customer satisfaction across all food delivery apps</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 2rem; font-weight: 800; color: #38bdf8;">0 Hallucinations</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Grounded menu database with price integrity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="brand" style="text-decoration: none;">
+            <img src="/static/images/cravecraft-logo.jpg" alt="CraveCraft" class="brand-logo-img">
+            <div class="brand-text">
+              <span class="brand-name">CraveCraft</span>
+              <span class="brand-tagline">Smart Food Ordering</span>
+            </div>
+          </a>
+          <p>
+            Elevating Indian dining through artisan recipes and intelligent meal planning. Fresh, hot, and transparent.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#menuSection">Explore Menu</a></li>
+            <li><a href="#aiShowcase">CraveBot AI</a></li>
+            <li><a href="#evaluatorSection">Evaluation Benchmark</a></li>
+            <li><a href="#aboutSection">Kitchen Standards</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Top Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#menuSection">Signature Mains</a></li>
+            <li><a href="#menuSection">Royal Biryanis</a></li>
+            <li><a href="#menuSection">Tandoori Starters</a></li>
+            <li><a href="#menuSection">Decadent Desserts</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kitchen & Delivery Hours</h4>
+          <p style="margin-bottom: 8px;">Monday – Sunday: 11:00 AM – 11:30 PM</p>
+          <p style="margin-bottom: 8px;">📍 42 Gourmet Avenue, Indiranagar</p>
+          <p style="margin-bottom: 14px;">📞 +91 98765 43210 / orders@cravecraft.in</p>
+          <div style="font-size: 0.8rem; color: var(--accent-secondary);">
+            FSSAI Lic. No. 11223344556677
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 CraveCraft — Smart Food Ordering. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Security & API Guardrails</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       CART SLIDE-OUT DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay">
+    <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+      <div class="cart-header">
+        <div class="cart-header-title">
+          <span>🛒</span>
+          <h3>Your Order</h3>
+          <span class="cart-badge" id="cartDrawerCount">0 items</span>
+        </div>
+        <button type="button" class="btn-close-drawer" id="btnCloseCart" aria-label="Close cart">✕</button>
+      </div>
+
+      <!-- Items List -->
+      <div class="cart-items-body" id="cartItemsList">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Footer & Totals -->
+      <div class="cart-footer">
+        <!-- Promo Coupon Input -->
+        <div id="promoSection">
+          <div class="promo-box">
+            <input type="text" id="promoInput" class="promo-input" placeholder="Coupon Code (e.g. CRAVE50)" maxlength="15">
+            <button type="button" id="btnApplyPromo" class="btn-apply-promo">Apply</button>
+          </div>
+          <div id="promoNotice" style="margin-top: 6px;"></div>
+        </div>
+
+        <!-- Special instructions -->
+        <textarea id="orderNotesInput" class="form-input" style="height: 60px; font-size: 0.82rem; resize: none;" placeholder="Special instructions (e.g. Less spicy, extra mint chutney)..."></textarea>
+
+        <!-- Bill breakdown -->
+        <div class="bill-summary">
+          <div class="bill-row">
+            <span>Item Subtotal</span>
+            <span id="billSubtotal">₹0</span>
+          </div>
+          <div class="bill-row">
+            <span>Delivery Fee <span style="font-size: 0.75rem; color: var(--veg-color);" id="freeDeliveryHint">(Free over ₹499)</span></span>
+            <span id="billDelivery">₹40</span>
+          </div>
+          <div class="bill-row">
+            <span>GST & Packaging (5%)</span>
+            <span id="billTaxes">₹0</span>
+          </div>
+          <div class="bill-row" id="billDiscountRow" style="display: none; color: var(--veg-color);">
+            <span>Coupon Discount</span>
+            <span id="billDiscount">-₹0</span>
+          </div>
+          <div class="bill-row total">
+            <span>Total Payable</span>
+            <span class="total-amount" id="billTotal">₹0</span>
+          </div>
+        </div>
+
+        <!-- Checkout Action -->
+        <button type="button" class="btn-primary btn-checkout" id="btnProceedCheckout">
+          <span>Proceed to Checkout →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CHECKOUT & CONFIRMATION MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="checkoutModalOverlay">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Checkout">
+      <div class="modal-header">
+        <h3 id="modalHeading">Complete Your CraveCraft Order</h3>
+        <button type="button" class="btn-close-drawer" id="btnCloseModal">✕</button>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Step 1: Form View -->
+        <form id="checkoutForm" style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="form-group">
+            <label for="custName" class="form-label">Full Name</label>
+            <input type="text" id="custName" class="form-input" placeholder="e.g. Aditi Sharma" required value="Aditi Sharma">
+          </div>
+
+          <div class="form-group">
+            <label for="custPhone" class="form-label">Mobile Number (For Delivery OTP)</label>
+            <input type="tel" id="custPhone" class="form-input" placeholder="+91 98765 43210" required value="+91 98765 43210">
+          </div>
+
+          <div class="form-group">
+            <label for="custAddress" class="form-label">Delivery Address</label>
+            <textarea id="custAddress" class="form-input" rows="2" placeholder="House/Flat No., Building, Street, Landmark" required>Flat 402, Royale Palms, 12th Main Indiranagar</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Payment Mode</label>
+            <div class="payment-options-grid">
+              <label class="payment-option-label active">
+                <input type="radio" name="paymentMethod" value="UPI / Google Pay" checked style="accent-color: var(--accent-primary);">
+                <span>📱 UPI / GPay / PhonePe</span>
+              </label>
+              <label class="payment-option-label">
+                <input type="radio" name="paymentMethod" value="Credit / Debit Card" style="accent-color: var(--accent-primary);">
+                <span>💳 Card on Delivery</span>
+              </label>
+              <label class="payment-option-label">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery" style="accent-color: var(--accent-primary);">
+                <span>💵 Cash on Delivery</span>
+              </label>
+              <label class="payment-option-label">
+                <input type="radio" name="paymentMethod" value="Net Banking" style="accent-color: var(--accent-primary);">
+                <span>🏦 Net Banking</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 14px; border: 1px solid var(--border-subtle);">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 4px;">
+              <span>Total Amount to Pay</span>
+              <span style="color: var(--accent-primary); font-size: 1.2rem;" id="modalPayableTotal">₹0</span>
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">
+              Inclusive of GST, packaging, and express delivery.
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btnPlaceOrder" style="width: 100%; padding: 14px; font-size: 1rem;">
+            <span>Place Order Now 🚀</span>
+          </button>
+        </form>
+
+        <!-- Step 2: Receipt View (Hidden Initially) -->
+        <div id="receiptView" style="display: none;">
+          <div class="receipt-header">
+            <div class="receipt-icon">✓</div>
+            <h3 style="font-size: 1.4rem;">Order Placed Successfully!</h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem;">Our master chefs are firing up the kitchen.</p>
+            <div class="order-id-badge" id="receiptOrderId">Order ID: CC-748291</div>
+          </div>
+
+          <!-- Live tracker -->
+          <div class="tracker-row">
+            <div class="tracker-step completed">
+              <div class="tracker-dot">✓</div>
+              <span class="tracker-label">Confirmed</span>
+            </div>
+            <div class="tracker-step active">
+              <div class="tracker-dot">🍳</div>
+              <span class="tracker-label">Preparing</span>
+            </div>
+            <div class="tracker-step">
+              <div class="tracker-dot">🛵</div>
+              <span class="tracker-label">On Way</span>
+            </div>
+            <div class="tracker-step">
+              <div class="tracker-dot">🏠</div>
+              <span class="tracker-label">Delivered</span>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px; font-size: 0.88rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+              <span style="color: var(--text-muted);">Estimated Delivery Time:</span>
+              <strong style="color: var(--accent-primary);" id="receiptEta">25-35 Minutes</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+              <span style="color: var(--text-muted);">Delivering To:</span>
+              <span id="receiptAddress" style="max-width: 200px; text-align: right; font-weight: 500;">Flat 402, Indiranagar</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Payment Mode:</span>
+              <span id="receiptPayment">UPI / GPay</span>
+            </div>
+          </div>
+
+          <div id="receiptItemsSummary" style="max-height: 140px; overflow-y: auto; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
+            <!-- Receipt items inserted here -->
+          </div>
+
+          <button type="button" class="btn-primary" id="btnContinueShopping" style="width: 100%;">
+            <span>Order Something Else 🍽️</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       RESPONSE EVALUATION MODAL (MODAL FOR ANY CRAVEBOT RESPONSE)
+       ========================================================================== -->
+  <div class="modal-overlay" id="evalModalOverlay">
+    <div class="modal-card" style="max-width: 600px;" role="dialog" aria-modal="true" aria-label="AI Response Audit Modal">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span>
+          <h3>AI Response Audit Details</h3>
+        </div>
+        <button type="button" class="btn-close-drawer" id="btnCloseEvalModal">✕</button>
+      </div>
+
+      <div class="modal-body" id="evalModalBody">
+        <!-- Populated dynamically when user clicks 'Evaluate Response' on any chat message -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING CRAVEBOT CHATBOT WIDGET
+       ========================================================================== -->
+  <div class="cravebot-launcher" id="cravebotLauncher">
+    <div class="cravebot-tooltip" id="botTooltip">
+      <span>✨ CraveBot AI Assistant</span>
+    </div>
+    <button type="button" class="btn-cravebot-trigger" id="btnToggleBot" aria-label="Open CraveBot Assistant">
+      <img src="/static/images/cravebot-avatar.jpg" alt="CraveBot AI" class="bot-trigger-avatar">
+      <span class="bot-online-indicator"></span>
+    </button>
+  </div>
+
+  <!-- CraveBot Window -->
+  <aside class="cravebot-window" id="cravebotWindow" aria-label="CraveBot Chat Assistant">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <img src="/static/images/cravebot-avatar.jpg" alt="CraveBot Avatar" class="chat-bot-avatar">
+        <div class="chat-bot-titles">
+          <h4>CraveBot</h4>
+          <span class="chat-bot-status" id="botStatusPill">
+            <span class="live-dot"></span>
+            <span id="botEngineLabel">Smart Assistant • Online</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="chat-header-actions">
+        <button type="button" class="chat-action-btn" id="btnMinimizeBot" title="Minimize">─</button>
+        <button type="button" class="chat-action-btn" id="btnCloseBot" title="Close">✕</button>
+      </div>
+    </div>
+
+    <!-- Quick Prompt Pills inside chat -->
+    <div class="chat-quick-pills">
+      <button type="button" class="chat-pill" data-prompt="Dinner for 2 under ₹800">🍲 For 2 under ₹800</button>
+      <button type="button" class="chat-pill" data-prompt="Best pure veg starters">🌿 Top Veg Starters</button>
+      <button type="button" class="chat-pill" data-prompt="What is your spiciest dish?">🌶️ Fiery Hot Picks</button>
+      <button type="button" class="chat-pill" data-prompt="Tell me about Smoked Butter Chicken">🍗 Butter Chicken</button>
+    </div>
+
+    <!-- Messages Container -->
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+      <!-- Welcome message -->
+      <div class="chat-msg bot">
+        <div class="msg-bubble">
+          <p><strong>Namaste! 🙏 I'm CraveBot, your personal CraveCraft food concierge.</strong></p>
+          <p>Tell me what you're craving, your budget (e.g. <em>"dinner under ₹600"</em>), or dietary preferences (pure veg, high protein, spicy). I'll curate the perfect meal and can add dishes right to your cart!</p>
+        </div>
+        <div class="msg-eval-bar">
+          <span>Official Menu Engine</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Input Area -->
+    <form class="chat-input-bar" id="chatForm">
+      <input type="text" id="chatInput" class="chat-input" placeholder="Ask CraveBot (e.g. best combo under ₹700)..." autocomplete="off">
+      <button type="submit" class="btn-chat-send" id="btnChatSend" title="Send message">
+        ➤
+      </button>
+    </form>
+  </aside>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/chatbot.js"></script>
+  <script src="/static/js/evaluator.js"></script>
+</body>
+</html>
